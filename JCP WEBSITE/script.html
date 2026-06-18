@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta timestamp="2026-03-29 15:36" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizens Justice Party of Kenya | Usawa wa Raia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'egyptian-blue': '#1034A6',
+                        'lemon-yellow': '#FFF44F',
+                        'glass-white': 'rgba(255, 255, 255, 0.1)',
+                        'glass-border': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Glassmorphism Utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-dark {
+            background: rgba(16, 52, 166, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 244, 79, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 244, 79, 0.1);
+        }
+
+        .glass-input {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .glass-input:focus {
+            outline: none;
+            border-color: #FFF44F;
+            box-shadow: 0 0 15px rgba(255, 244, 79, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Navigation Link with Border */
+        .nav-link-bordered {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link-bordered:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 244, 79, 0.6);
+            box-shadow: 0 4px 20px rgba(255, 244, 79, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden */
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        /* Hero Gradient Overlay */
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(16, 52, 166, 0.8), rgba(0, 0, 0, 0.6));
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1034A6;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFF44F;
+        }
+
+        /* Dropdown Animation */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .group:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+</head>
+<body class="font-sans text-white antialiased overflow-x-hidden bg-gray-900">
+
+    <!-- Fixed Background Image -->
+    <div class="fixed inset-0 z-[-1]">
+        <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?q=80&w=2070&auto=format&fit=crop" alt="Nairobi Skyline" class="w-full h-full object-cover">
+        <div class="absolute inset-0 hero-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b-0 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+              <a href="#" class="logo flex items-center gap-3">
+    <img src="https://image2url.com/r2/default/images/1774789097590-11c19416-8364-4c8a-b7d6-1fd8ce687e5d.jpeg" 
+         alt="Citizen Justice Party Logo" 
+         class="w-10 h-10 object-contain rounded-full border border-white/20 p-1 bg-white/10 backdrop-blur-md shadow-lg">
+    
+    <span class="font-bold text-white text-lg">
+        Citizens Justice Party of Kenya
+    </span>
+</a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <button onclick="showSection('home')" class="nav-link-bordered px-5 py-2 rounded-full text-sm font-medium transition-colors hover:text-lemon-yellow">Home</button>
+                        
+                        <!-- About Dropdown -->
+                        <div class="relative group">
+                            <button class="nav-link-bordered px-5 py-2 rounded-full text-sm font-medium transition-colors hover:text-lemon-yellow flex items-center gap-2">
+                                About <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div class="dropdown-menu absolute left-0 mt-3 w-48 rounded-xl glass-dark shadow-2xl overflow-hidden z-50 border border-white/10">
+                                <a onclick="showSection('about')" class="block px-4 py-3 text-sm hover:bg-white/10 hover:text-lemon-yellow cursor-pointer transition-colors border-b border-white/5">About Us</a>
+                                <a onclick="showSection('leadership')" class="block px-4 py-3 text-sm hover:bg-white/10 hover:text-lemon-yellow cursor-pointer transition-colors border-b border-white/5">Leadership</a>
+                                <a onclick="showSection('manifesto')" class="block px-4 py-3 text-sm hover:bg-white/10 hover:text-lemon-yellow cursor-pointer transition-colors border-b border-white/5">Manifesto</a>
+                                <a onclick="showSection('downloads')" class="block px-4 py-3 text-sm hover:bg-white/10 hover:text-lemon-yellow cursor-pointer transition-colors">Downloads</a>
+                            </div>
+                        </div>
+
+                        <button onclick="showSection('membership')" class="nav-link-bordered px-5 py-2 rounded-full text-sm font-medium transition-colors hover:text-lemon-yellow">Membership</button>
+                        <button onclick="showSection('news')" class="nav-link-bordered px-5 py-2 rounded-full text-sm font-medium transition-colors hover:text-lemon-yellow">News</button>
+                        <button onclick="showSection('contact')" class="bg-lemon-yellow text-egyptian-blue hover:bg-white px-6 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:scale-105 border-2 border-lemon-yellow hover:border-white">
+                            Join Us
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="nav-link-bordered w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-lemon-yellow focus:outline-none">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+<div id="mobile-menu" class="hidden md:hidden glass-dark absolute w-full border-t border-white/10 mt-0">
+    <div class="px-4 pt-4 pb-6 space-y-3 sm:px-6">
+
+        <button onclick="showSection('home')" class="nav-link-bordered block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:text-lemon-yellow">Home</button>
+
+        <button onclick="showSection('about')" class="nav-link-bordered block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:text-lemon-yellow">About Us</button>
+
+        <button onclick="showSection('leadership')" class="nav-link-bordered block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:text-lemon-yellow">Leadership</button>
+
+        <button onclick="showSection('manifesto')" class="nav-link-bordered block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:text-lemon-yellow">Manifesto</button>
+
+        <!-- ✅ ADD THIS -->
+        <button onclick="showSection('downloads')" 
+            class="nav-link-bordered block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:text-lemon-yellow">
+            Downloads
+        </button>
+
+        <button onclick="showSection('membership')" class="nav-link-bordered block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:text-lemon-yellow">Membership</button>
+
+        <button onclick="showSection('news')" class="nav-link-bordered block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:text-lemon-yellow">News</button>
+
+        <button onclick="showSection('contact')" class="block w-full text-left px-4 py-3 rounded-xl text-base font-medium bg-lemon-yellow text-egyptian-blue font-bold border-2 border-lemon-yellow">
+            Join Us
+        </button>
+
+    </div>
+</div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="pt-20 min-h-screen relative">
+
+        <!-- SECTION: HOME -->
+        <section id="home" class="page-section min-h-[calc(100vh-80px)] flex items-center justify-center px-4">
+            <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Text -->
+                <div class="glass p-8 md:p-12 rounded-3xl animate-fade-in-up">
+                    <div class="inline-block px-4 py-1 rounded-full bg-lemon-yellow/20 border border-lemon-yellow/50 text-lemon-yellow text-sm font-bold mb-6">
+                        EST. 2024 • USAWA WA RAIA
+                    </div>
+                    <h1 class="font-heading text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
+                        Justice for <br>
+                        <span class="text-lemon-yellow">Every Citizen</span>
+                    </h1>
+                    <p class="text-lg text-gray-200 mb-8 leading-relaxed">
+                        Building a transparent, unified, and prosperous Kenya. The Citizens Justice Party of Kenya stands for the rule of law, economic development, and the dignity of every Kenyan.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="showSection('membership')" class="bg-lemon-yellow text-egyptian-blue px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/60 hover:scale-105 transition-all">
+                            Join the Movement
+                        </button>
+                        <button onclick="showSection('manifesto')" class="glass hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg border border-white/30 transition-all">
+                            Read Manifesto
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Stats / Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in-up delay-200">
+                    <!-- Card 1 -->
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 mb-4">
+                            <i class="fas fa-balance-scale text-xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2">Justice</h3>
+                        <p class="text-sm text-gray-300">Upholding the rule of law and ensuring fair treatment for all citizens under the constitution.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="glass-card p-6 rounded-2xl mt-0 md:mt-8">
+                        <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-300 mb-4">
+                            <i class="fas fa-handshake text-xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2">Unity</h3>
+                        <p class="text-sm text-gray-300">Bridging tribal and regional divides to foster a cohesive national identity.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-300 mb-4">
+                            <i class="fas fa-eye text-xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2">Transparency</h3>
+                        <p class="text-sm text-gray-300">Open governance and accountability in every public office and process.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="glass-card p-6 rounded-2xl mt-0 md:mt-8">
+                        <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-300 mb-4">
+                            <i class="fas fa-chart-line text-xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2">Development</h3>
+                        <p class="text-sm text-gray-300">Sustainable economic growth driven by innovation and infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ABOUT -->
+        <section id="about" class="page-section hidden min-h-screen py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 animate-fade-in-up">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4">About <span class="text-lemon-yellow">Us</span></h2>
+                    <div class="w-24 h-1 bg-lemon-yellow mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- History -->
+                    <div class="glass-card p-8 rounded-3xl animate-fade-in-up delay-100">
+                        <div class="w-16 h-16 rounded-2xl bg-egyptian-blue/50 flex items-center justify-center mb-6 text-lemon-yellow text-3xl">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold mb-4">Our History</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Founded in 2024 by a coalition of human rights activists and economic reformers, the Citizens Justice Party of Kenya emerged from a need for a political movement truly centered on the people's welfare, not just rhetoric.
+                        </p>
+                    </div>
+
+                    <!-- Vision -->
+                    <div class="glass-card p-8 rounded-3xl animate-fade-in-up delay-200">
+                        <div class="w-16 h-16 rounded-2xl bg-egyptian-blue/50 flex items-center justify-center mb-6 text-lemon-yellow text-3xl">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold mb-4">Our Vision</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            A Kenya where justice is accessible to the poorest citizen, where economic opportunities are equitable, and where the government serves as a diligent steward of public trust and resources.
+                        </p>
+                    </div>
+
+                    <!-- Mission -->
+                    <div class="glass-card p-8 rounded-3xl animate-fade-in-up delay-300">
+                        <div class="w-16 h-16 rounded-2xl bg-egyptian-blue/50 flex items-center justify-center mb-6 text-lemon-yellow text-3xl">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold mb-4">Our Mission</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            To mobilize citizens towards active participation in governance, to implement radical transparency laws, and to build infrastructure that connects all 47 counties to the global economy.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="glass p-6 rounded-2xl text-center">
+                        <div class="text-4xl font-bold text-lemon-yellow mb-2">47</div>
+                        <div class="text-sm text-gray-300">Counties Active</div>
+                    </div>
+                    <div class="glass p-6 rounded-2xl text-center">
+                        <div class="text-4xl font-bold text-lemon-yellow mb-2">10k+</div>
+                        <div class="text-sm text-gray-300">Members</div>
+                    </div>
+                    <div class="glass p-6 rounded-2xl text-center">
+                        <div class="text-4xl font-bold text-lemon-yellow mb-2">100%</div>
+                        <div class="text-sm text-gray-300">Commitment</div>
+                    </div>
+                    <div class="glass p-6 rounded-2xl text-center">
+                        <div class="text-4xl font-bold text-lemon-yellow mb-2">1</div>
+                        <div class="text-sm text-gray-300">Kenya</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: LEADERSHIP -->
+        <section id="leadership" class="page-section hidden min-h-screen py-20 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 animate-fade-in-up">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4">Party <span class="text-lemon-yellow">Leadership</span></h2>
+                    <p class="text-gray-300 max-w-2xl mx-auto">Meet the dedicated individuals steering the party towards a brighter future for Kenya.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Leader 1 - Party Chairman -->
+                    <div class="glass-card rounded-3xl overflow-hidden group animate-fade-in-up delay-100">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://image2url.com/r2/default/images/1774790852475-9b667ecd-b254-4d4b-ba02-7c24b42b9f4a.jpeg" alt="Chairman" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-egyptian-blue to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="font-heading text-2xl font-bold text-white">Jacob Mantilli Kinganga</h3>
+                            <p class="text-lemon-yellow font-medium mb-4">Party Chairman</p>
+                            <p class="text-gray-300 text-sm mb-2" id="stmt-short-leader1">Kenya stands at a defining moment in its history. For too long, politics has been reduced to promises, survival in power, and systems that serve a few while leaving millions...</p>
+                            <p class="text-gray-300 text-sm mb-4 hidden" id="stmt-full-leader1">Kenya stands at a defining moment in its history. For too long, politics has been reduced to promises, survival in power, and systems that serve a few while leaving millions struggling. Our people work hard, follow the rules, and still find themselves locked out of opportunity. This reality must change. Our party was founded on a simple but powerful belief: leadership must restore dignity, opportunity, and fairness to every citizen. Government should not exist to preserve political elites; it must exist to empower the people. True leadership does not create dependency—it creates the conditions for citizens to build their own prosperity. Across our country, millions of young people remain unemployed despite their talent and determination. Families struggle to educate their children. Communities lack the investment needed to unlock their potential. Meanwhile, corruption continues to drain resources that should be transforming lives. This is unacceptable. Our mission is clear. We will champion a new era of development that focuses on jobs, education, innovation, and accountable leadership. Instead of empty handouts, we will pursue sustainable economic programs that create real employment opportunities and equip our youth with modern skills—particularly in digital technology, entrepreneurship, and emerging global industries. We believe that every constituency and every community has the potential to become a center of growth. With transparent leadership, strategic investment, and strong partnerships—both locally and internationally—we can mobilize the resources necessary to transform our communities. Our vision includes modern educational institutions, technology-driven learning, and programs that prepare our young people for the future economy. But transformation requires courage. It requires leaders who are willing to speak the truth, challenge broken systems, and try new solutions. Progress has never come from playing it safe; it comes from bold ideas and persistent effort. History reminds us that nations advance when their leaders dare to experiment, innovate, and act decisively. We honor the legacy of those who fought for freedom and opportunity before us, but we must now build a future worthy of the next generation. Our commitment is simple: to serve the people with integrity, to fight corruption without compromise, and to pursue policies that restore hope and opportunity for every Kenyan. The journey ahead will not be easy. But if we work together—with courage, unity, and determination—we can renew the promise of our nation and build a future where every citizen has the tools to succeed. The time to act is now. The future belongs to those who are bold enough to build it.</p>
+                            <button onclick="toggleStatement('leader1')" id="btn-leader1" class="text-lemon-yellow text-xs font-bold hover:underline mb-4 focus:outline-none">Show More</button>
+                            <div class="flex space-x-3">
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leader 2 - Deputy Chairperson -->
+                    <div class="glass-card rounded-3xl overflow-hidden group animate-fade-in-up delay-200">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://image2url.com/r2/default/images/1773429465558-6c4ab4ba-3c8d-4d2a-a214-cf3d561e2639.png" alt="Deputy Chairman" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-egyptian-blue to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="font-heading text-2xl font-bold text-white">Hon. Victor Ochieng</h3>
+                            <p class="text-lemon-yellow font-medium mb-4">Deputy Chairman</p>
+                            <p class="text-gray-300 text-sm mb-2" id="stmt-short-leader2">Deputy Party Leader Statement As Deputy Party Leader of the Citizen Justice Party, I remain committed to promoting justice, accountability, and equal opportunity for all. Our focus is to empower...</p>
+                            <p class="text-gray-300 text-sm mb-4 hidden" id="stmt-full-leader2">Deputy Party Leader Statement As Deputy Party Leader of the Citizen Justice Party, I remain committed to promoting justice, accountability, and equal opportunity for all. Our focus is to empower citizens, strengthen governance, and address key challenges affecting our communities. We stand for inclusive leadership and meaningful change. Together, we can build a fair, united, and progressive society. Justice for All. Progress for All.</p>
+                            <button onclick="toggleStatement('leader2')" id="btn-leader2" class="text-lemon-yellow text-xs font-bold hover:underline mb-4 focus:outline-none">Show More</button>
+                            <div class="flex space-x-3">
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leader 3 - National Treasurer -->
+                    <div class="glass-card rounded-3xl overflow-hidden group animate-fade-in-up delay-300">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://image2url.com/r2/default/images/1774791213562-9f4ad71f-135f-4fd1-9c60-c797f632c9a9.jpeg" alt="Treasurer" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-egyptian-blue to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="font-heading text-2xl font-bold text-white">Serah Wairimu</h3>
+                            <p class="text-lemon-yellow font-medium mb-4">National Treasurer</p>
+                            <p class="text-gray-300 text-sm mb-2" id="stmt-short-leader3">Fellow members and supporters, Financial integrity is the backbone of any credible and responsible political movement. At the Citizens Justice Party (CJP), we firmly believe that transparency, accountability, and prudent...</p>
+                            <p class="text-gray-300 text-sm mb-4 hidden" id="stmt-full-leader3">Fellow members and supporters, Financial integrity is the backbone of any credible and responsible political movement. At the Citizens Justice Party (CJP), we firmly believe that transparency, accountability, and prudent management of resources are essential to building public trust and sustaining our mission. As Treasurer, my responsibility is to ensure that every contribution made to the party is managed with the highest standards of honesty, professionalism, and accountability. Every resource entrusted to CJP will be used responsibly to advance our programs, strengthen our structures, and support initiatives that serve the interests of our members and the citizens we represent. Our commitment is to build a financial system that is transparent, well-managed, and compliant with the laws governing political parties. Through proper financial planning, responsible budgeting, and clear reporting mechanisms, we aim to ensure that the party’s resources are used efficiently and for the benefit of the movement and the nation. We also recognize that the growth and strength of our party depends on the collective support of its members and well-wishers. Every contribution—big or small—plays a crucial role in sustaining the work of the party and advancing our shared vision of justice, fairness, and national progress. I therefore encourage all supporters to continue standing with CJP by contributing their ideas, their time, and their resources to this important journey. Together, through discipline and transparency, we will build a strong and sustainable movement capable of transforming our society.</p>
+                            <button onclick="toggleStatement('leader3')" id="btn-leader3" class="text-lemon-yellow text-xs font-bold hover:underline mb-4 focus:outline-none">Show More</button>
+                            <div class="flex space-x-3">
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leader 4 - Secretary For Publicity -->
+                    <div class="glass-card rounded-3xl overflow-hidden group animate-fade-in-up delay-100">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://image2url.com/r2/default/images/1773429389613-da40c0e9-c5e3-49c4-8f8a-2e6af05753ae.png" alt="Secretary For Publicity" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-egyptian-blue to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="font-heading text-2xl font-bold text-white">Hon. Lonny Obiero.</h3>
+                            <p class="text-lemon-yellow font-medium mb-4">Secretary For Publicity</p>
+                            <p class="text-gray-300 text-sm mb-2" id="stmt-short-leader4">STATEMENT BY HON. LONNY OBIERO Director of Publicity Secretary, Citizen Justice Party (CJP) “Fellow Kenyans, my brothers and sisters in our universities, and the vibrant youth in every corner of...</p>
+                            <p class="text-gray-300 text-sm mb-4 hidden" id="stmt-full-leader4">STATEMENT BY HON. LONNY OBIERO Director of Publicity Secretary, Citizen Justice Party (CJP) “Fellow Kenyans, my brothers and sisters in our universities, and the vibrant youth in every corner of this Republic, habari zenu. There is a biological truth we must face: Humanity has been around for 200,000 years. In the grand timeline of existence, we are currently in our "Sweet 16." We have reached that fateful age where we have learned how to drive the engine of our nation, but we are also just reckless enough to crash it. For too long, Kenyan politics has been treated like an "infantile playground"—a place of narcissism where leaders believe the world was made for their gratification, assuming someone else will always "clear up the mess." I am here to tell you: The adolescence of our politics must end. The Citizen Justice Party (CJP) is not just another political outfit; it is the "coming of age" party for a generation that is tired of watching the "ice melt in the martini" while our own lands face drought, crop failure, and economic stagnation. We are calling upon the brilliant minds in our colleges and universities—the "Green-Collar" workers of tomorrow. We are offering a sanctuary for those who believe in: Freedom of Media & Publicity: We refuse to muzzle the truth. In CJP, the camera and the pen are sacred tools for accountability, not weapons to be feared. Freedom of Speech: Your voice is the heartbeat of this democracy. We don't just tolerate your dissent; we invite your innovation. The Laws of the Land: We are a party of order. We abide by the statutes of Kenya not out of fear, but out of a profound respect for the Constitution and its ideology of justice for every citizen. To the youth: They say "it’s not easy being green," but they are wrong. It is lucrative, it is right, and it is our future. While others focus on the politics of yesterday, CJP is focused on "Trees, Tech, and Talent." We want to transform Kenya into a hub of innovation—from AI-driven food production to renewable energy that powers our manufacturing without "deranging the natural order." We want to create millions of high-wage, high-skill jobs so that the next generation doesn't just look for work, but creates the very solutions that save our planet. The ancient philosopher Sophocles once said that man is deinos—both "terrifying" and "awesome." For decades, Kenyan politics has been terrifying. It has been a story of what we can destroy.The Citizen Justice Party chooses to be Awesome. We choose to harness the power of our youth to build, to protect our environment, and to uphold the dignity of our laws. We are blowing out the candles of a "world on fire" and lighting the torch of a new, mature leadership.To every university student, every hustler, and every visionary: Your 16th birthday party is over. It is time to grow up, take the wheel, and drive this nation toward justice. Welcome to the Citizen Justice Party. Welcome home.” Hon. Lonny Obiero Director of Publicity Secretary, Citizen Justice Party.</p>
+                            <button onclick="toggleStatement('leader4')" id="btn-leader4" class="text-lemon-yellow text-xs font-bold hover:underline mb-4 focus:outline-none">Show More</button>
+                            <div class="flex space-x-3">
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leader 5 - Youth Leader -->
+                    <div class="glass-card rounded-3xl overflow-hidden group animate-fade-in-up delay-200">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://image2url.com/r2/default/images/1774786584348-df14a63c-0d80-4dcf-9fc9-b10a57036735.jpeg" alt="Youth Leader" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-egyptian-blue to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="font-heading text-2xl font-bold text-white">Reagan Onditi</h3>
+                            <p class="text-lemon-yellow font-medium mb-4">Youth Leader</p>
+                            <p class="text-gray-300 text-sm mb-2" id="stmt-short-leader5">Fellow young people, The future of our nation is not something distant—it is being shaped today by the choices we make and the courage we show. The youth of our...</p>
+                            <p class="text-gray-300 text-sm mb-4 hidden" id="stmt-full-leader5">Fellow young people, The future of our nation is not something distant—it is being shaped today by the choices we make and the courage we show. The youth of our country are energetic, innovative, and determined, yet many continue to face barriers such as unemployment, limited opportunities, and exclusion from decision-making. The Citizens Justice Party (CJP) believes that young people must not remain spectators in the affairs of their nation. We must be active participants, innovators, and leaders who help drive the transformation our society urgently needs. As the Youth Leader of CJP, I stand firmly with millions of young citizens who believe in fairness, opportunity, and a government that listens to its people. Our mission is to empower young people with the tools, platforms, and confidence needed to shape policies, build enterprises, and contribute meaningfully to national development. We call upon the youth to rise above division and embrace unity, knowledge, and innovation. The strength of our generation lies not only in our numbers but also in our ideas, resilience, and determination to create a better tomorrow. CJP is committed to championing youth empowerment, education, employment opportunities, and leadership development. We believe that when young people are empowered, communities grow stronger and nations move forward. To every young citizen who dreams of a fairer and more prosperous nation, I say this: your voice matters, your ideas matter, and your leadership matters. Join us as we build a movement that will open doors for our generation and generations to come. Together, we will shape a future defined by opportunity, dignity, and justice for all.</p>
+                            <button onclick="toggleStatement('leader5')" id="btn-leader5" class="text-lemon-yellow text-xs font-bold hover:underline mb-4 focus:outline-none">Show More</button>
+                            <div class="flex space-x-3">
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leader 6 - Women's League Chair -->
+                    <div class="glass-card rounded-3xl overflow-hidden group animate-fade-in-up delay-300">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://image2url.com/r2/default/images/1774786345875-2421ea8a-baf7-48b9-8d83-cd607f4276c5.jpeg" alt="Women Leader" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-egyptian-blue to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="font-heading text-2xl font-bold text-white">Victoria Tijara</h3>
+                            <p class="text-lemon-yellow font-medium mb-4">Women Leader</p>
+                            <p class="text-gray-300 text-sm mb-4">Gender equality advocate and entrepreneur championing women's economic empowerment across Kenya.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leader 7 - Comrade's President CJP -->
+                    <div class="glass-card rounded-3xl overflow-hidden group animate-fade-in-up delay-100">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://image2url.com/r2/default/images/1774786728676-4a281109-10e8-4b53-bfbf-4bb3d5b8d370.jpeg" alt="Comrades President CJP" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-egyptian-blue to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="font-heading text-2xl font-bold text-white">Lydia Ochieng'</h3>
+                            <p class="text-lemon-yellow font-medium mb-4">Comrades President CJP</p>
+                            <p class="text-gray-300 text-sm mb-2" id="stmt-short-leader7">Comrades President’s Statement Fellow comrades, Universities and colleges have always been the birthplace of great ideas, bold leadership, and movements that shape the future of our society. As students and...</p>
+                            <p class="text-gray-300 text-sm mb-4 hidden" id="stmt-full-leader7">Comrades President’s Statement Fellow comrades, Universities and colleges have always been the birthplace of great ideas, bold leadership, and movements that shape the future of our society. As students and young intellectuals, we carry the responsibility not only to pursue education but also to stand for justice, equality, and the progress of our nation. The Citizens Justice Party (CJP) recognizes the vital role that comrades play in building a strong and democratic society. Our institutions of learning are not only centers of knowledge but also platforms where the next generation of leaders is nurtured and prepared to serve the nation. As Comrades President, I believe that students must remain at the forefront of advocating for fairness, academic freedom, and opportunities that allow every young person to achieve their full potential. We must speak with courage against injustice, defend the rights of students, and contribute positively to national development. CJP is committed to empowering comrades through leadership development, civic engagement, and platforms that allow student voices to influence policy and national dialogue. Our goal is to ensure that the ideas and aspirations of young scholars are reflected in the decisions that shape our country. I therefore call upon all comrades across universities and colleges to unite in purpose, pursue knowledge with determination, and take an active role in building a better future for our nation. The strength of tomorrow lies in the courage and vision of today’s comrades. Let us rise, lead, and transform our society together.</p>
+                            <button onclick="toggleStatement('leader7')" id="btn-leader7" class="text-lemon-yellow text-xs font-bold hover:underline mb-4 focus:outline-none">Show More</button>
+                            <div class="flex space-x-3">
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: MANIFESTO -->
+        <section id="manifesto" class="page-section hidden min-h-screen py-20 px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="glass p-8 md:p-12 rounded-3xl mb-10 animate-fade-in-up">
+                    <h2 class="font-heading text-4xl font-bold mb-6 text-lemon-yellow">2024-2028 Manifesto</h2>
+                    <p class="text-xl text-gray-200">A comprehensive plan for Kenya's transformation. We commit to these five pillars of development.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Policy 1 -->
+                    <div class="glass-card p-8 rounded-2xl animate-fade-in-up delay-100 flex flex-col md:flex-row gap-6 items-start">
+                        <div class="w-16 h-16 rounded-full bg-blue-600 flex-shrink-0 flex items-center justify-center text-2xl font-bold text-white">1</div>
+                        <div>
+                            <h3 class="font-heading text-2xl font-bold mb-3 text-white">Economic Empowerment</h3>
+                            <p class="text-gray-300 leading-relaxed">Establishment of a sovereign wealth fund to ensure future generations benefit from current resources. Tax incentives for SMEs and mandatory local content quotas in government procurement to boost local manufacturing.</p>
+                        </div>
+                    </div>
+
+                    <!-- Policy 2 -->
+                    <div class="glass-card p-8 rounded-2xl animate-fade-in-up delay-200 flex flex-col md:flex-row gap-6 items-start">
+                        <div class="w-16 h-16 rounded-full bg-yellow-500 flex-shrink-0 flex items-center justify-center text-2xl font-bold text-egyptian-blue">2</div>
+                        <div>
+                            <h3 class="font-heading text-2xl font-bold mb-3 text-white">Universal Healthcare</h3>
+                            <p class="text-gray-300 leading-relaxed">Full implementation of the Social Health Authority (SHA) with zero-cost access to primary care. Construction of 50 new Level 4 hospitals in underserved counties and digitalization of all health records.</p>
+                        </div>
+                    </div>
+
+                    <!-- Policy 3 -->
+                    <div class="glass-card p-8 rounded-2xl animate-fade-in-up delay-300 flex flex-col md:flex-row gap-6 items-start">
+                        <div class="w-16 h-16 rounded-full bg-green-600 flex-shrink-0 flex items-center justify-center text-2xl font-bold text-white">3</div>
+                        <div>
+                            <h3 class="font-heading text-2xl font-bold mb-3 text-white">Education Reform</h3>
+                            <p class="text-gray-300 leading-relaxed">Integration of technology in all public schools by 2026. Free STEM education for girls in ASAL regions and a national apprenticeship program linking vocational training directly to industry needs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Policy 4 -->
+                    <div class="glass-card p-8 rounded-2xl animate-fade-in-up delay-300 flex flex-col md:flex-row gap-6 items-start">
+                        <div class="w-16 h-16 rounded-full bg-red-600 flex-shrink-0 flex items-center justify-center text-2xl font-bold text-white">4</div>
+                        <div>
+                            <h3 class="font-heading text-2xl font-bold mb-3 text-white">Governance & Anti-Corruption</h3>
+                            <p class="text-gray-300 leading-relaxed">Mandatory lifestyle audits for all public officials. Digitization of all land registries to eliminate fraud. Whistleblower protection act with financial rewards for exposing graft.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      <!-- SECTION: DOWNLOADS -->
+<section id="downloads" class="page-section hidden min-h-screen py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+
+        <div class="text-center mb-12 animate-fade-in-up">
+            <h2 class="font-heading text-4xl font-bold mb-4">
+                Resource <span class="text-lemon-yellow">Center</span>
+            </h2>
+            <p class="text-gray-300">Download official party documents and forms.</p>
+        </div>
+
+        <div class="glass p-8 rounded-3xl animate-fade-in-up delay-100">
+
+            <ul class="space-y-4">
+
+                <!-- Item 1 -->
+                <li class="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-white">Party Ideology Document</h4>
+                            <p class="text-xs text-gray-400">2.4 MB • Updated Oct 2024</p>
+                        </div>
+                    </div>
+
+                    <a href="https://image2url.com/r2/default/files/1773606952433-f54d8d98-0e30-473f-a30b-7c07006f699e.pdf" 
+                       target="_blank"
+                       class="px-4 py-2 rounded-lg bg-lemon-yellow text-egyptian-blue font-bold text-sm hover:bg-white transition-colors inline-flex items-center">
+                        <i class="fas fa-download mr-2"></i> Download
+                    </a>
+
+                </li>
+
+                <!-- Item 2 -->
+                <li class="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center">
+                            <i class="fas fa-file-word"></i>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-white">Membership Document</h4>
+                            <p class="text-xs text-gray-400">150 KB • Docx</p>
+                        </div>
+                    </div>
+
+                    <a href="https://image2url.com/r2/default/documents/1773480607703-27fa93f8-945a-4893-b33d-a9870fe914d5.pdf" 
+                       target="_blank"
+                       class="px-4 py-2 rounded-lg bg-lemon-yellow text-egyptian-blue font-bold text-sm hover:bg-white transition-colors inline-flex items-center">
+                        <i class="fas fa-download mr-2"></i> Download
+                    </a>
+
+                </li>
+
+                <!-- Item 3 -->
+                <li class="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-green-500/20 text-green-400 flex items-center justify-center">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-white">Party Constitution</h4>
+                            <p class="text-xs text-gray-400">45 KB </p>
+                        </div>
+                    </div>
+
+                    <a href="https://image2url.com/r2/default/files/1773606826944-56ea3fc6-bd77-4822-a7f8-3899791d1f65.docx" 
+                       target="_blank"
+                       class="px-4 py-2 rounded-lg bg-lemon-yellow text-egyptian-blue font-bold text-sm hover:bg-white transition-colors inline-flex items-center">
+                        <i class="fas fa-download mr-2"></i> Download
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</section>
+
+        <!-- SECTION: MEMBERSHIP -->
+        <section id="membership" class="page-section hidden min-h-screen py-20 px-4">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in-up">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6">Become a <span class="text-lemon-yellow">Member</span></h2>
+                    <p class="text-lg text-gray-300 mb-8">Join thousands of Kenyans committed to justice and development. Membership is open to all citizens above 18 years.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-lemon-yellow/20 flex items-center justify-center text-lemon-yellow flex-shrink-0">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl">Voting Rights</h4>
+                                <p class="text-gray-400">Participate in party primaries and elect leadership.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-lemon-yellow/20 flex items-center justify-center text-lemon-yellow flex-shrink-0">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl">Community Voice</h4>
+                                <p class="text-gray-400">Propose policies and community projects.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-lemon-yellow/20 flex items-center justify-center text-lemon-yellow flex-shrink-0">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl">Official ID</h4>
+                                <p class="text-gray-400">Receive a digital membership card immediately.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 md:p-10 rounded-3xl animate-fade-in-up delay-200 border-t-4 border-lemon-yellow">
+                    <form onsubmit="event.preventDefault(); alert('Thank you for registering! Welcome to the Citizens Justice Party of Kenya.');" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">First Name</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-xl glass-input" placeholder="John" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Last Name</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-xl glass-input" placeholder="Doe" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-xl glass-input" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-3 rounded-xl glass-input" placeholder="07XX XXX XXX" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">County</label>
+                                <select class="w-full px-4 py-3 rounded-xl glass-input">
+                                    <option value="" disabled selected>Select County</option>
+                                    <option value="Nairobi">Nairobi</option>
+                                    <option value="Mombasa">Mombasa</option>
+                                    <option value="Kisumu">Kisumu</option>
+                                    <option value="Nakuru">Nakuru</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">ID Number</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl glass-input" placeholder="National ID Number" required>
+                        </div>
+
+                        <button type="submit" class="w-full bg-lemon-yellow text-egyptian-blue font-bold py-4 rounded-xl hover:bg-white transition-all transform hover:scale-[1.02] shadow-lg shadow-yellow-500/30">
+                            Complete Registration
+                        </button>
+                        <p class="text-xs text-center text-gray-400 mt-4">By registering, you agree to the party constitution and code of conduct.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: NEWS -->
+        <section id="news" class="page-section hidden min-h-screen py-20 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 animate-fade-in-up">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4">Latest <span class="text-lemon-yellow">News</span></h2>
+                    <p class="text-gray-300">Latest happenings from across the party.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- News 1 -->
+                    <article class="glass-card rounded-2xl overflow-hidden flex flex-col h-full animate-fade-in-up delay-100">
+                        <div class="h-48 bg-gray-700 relative">
+                            <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Rally">
+                            <div class="absolute top-4 left-4 bg-lemon-yellow text-egyptian-blue text-xs font-bold px-3 py-1 rounded-full">EVENT</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="text-sm text-gray-400 mb-2">October 15, 2024</div>
+                            <h3 class="font-heading text-xl font-bold mb-3 hover:text-lemon-yellow transition-colors cursor-pointer">National Delegates Conference</h3>
+                            <p class="text-gray-300 text-sm mb-4 flex-1">Join us at the Bomas of Kenya for the annual delegates conference to review our progress and set the agenda for 2025.</p>
+                            <a href="#" class="text-lemon-yellow font-bold text-sm hover:underline mt-auto">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- News 2 -->
+                    <article class="glass-card rounded-2xl overflow-hidden flex flex-col h-full animate-fade-in-up delay-200">
+                        <div class="h-48 bg-gray-700 relative">
+                            <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Policy">
+                            <div class="absolute top-4 left-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">POLICY</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="text-sm text-gray-400 mb-2">October 10, 2024</div>
+                            <h3 class="font-heading text-xl font-bold mb-3 hover:text-lemon-yellow transition-colors cursor-pointer">New Education Bill Proposed</h3>
+                            <p class="text-gray-300 text-sm mb-4 flex-1">Our parliamentary wing has tabled a new bill aimed at increasing the education budget by 15% to support digital learning.</p>
+                            <a href="#" class="text-lemon-yellow font-bold text-sm hover:underline mt-auto">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- News 3 -->
+                    <article class="glass-card rounded-2xl overflow-hidden flex flex-col h-full animate-fade-in-up delay-300">
+                        <div class="h-48 bg-gray-700 relative">
+                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Community">
+                            <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">COMMUNITY</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="text-sm text-gray-400 mb-2">October 5, 2024</div>
+                            <h3 class="font-heading text-xl font-bold mb-3 hover:text-lemon-yellow transition-colors cursor-pointer">Clean Water Initiative Launch</h3>
+                            <p class="text-gray-300 text-sm mb-4 flex-1">Partnering with local NGOs to install boreholes in 10 arid counties before the end of the year.</p>
+                            <a href="#" class="text-lemon-yellow font-bold text-sm hover:underline mt-auto">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CONTACT -->
+        <section id="contact" class="page-section hidden min-h-screen py-20 px-4">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="animate-fade-in-up">
+                    <h2 class="font-heading text-4xl font-bold mb-6">Get in <span class="text-lemon-yellow">Touch</span></h2>
+                    <p class="text-gray-300 mb-10">Have questions or want to volunteer? Reach out to our headquarters.</p>
+
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-6">
+                            <div class="w-14 h-14 rounded-2xl glass flex items-center justify-center text-lemon-yellow text-2xl flex-shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Headquarters</h4>
+                                <p class="text-gray-300">Justice Tower, Haile Selassie Avenue<br>Nairobi, Kenya</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-14 h-14 rounded-2xl glass flex items-center justify-center text-lemon-yellow text-2xl flex-shrink-0">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Phone</h4>
+                                <p class="text-gray-300">+254 700 123 456<br>+254 733 789 012</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-14 h-14 rounded-2xl glass flex items-center justify-center text-lemon-yellow text-2xl flex-shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Email</h4>
+                                <p class="text-gray-300">info@citizensjustice.or.ke<br>support@citizensjustice.or.ke</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h4 class="font-bold text-lg mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-all"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-all"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-all"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-all"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map & Form -->
+                <div class="space-y-6 animate-fade-in-up delay-200">
+                    <!-- Simulated Map -->
+                    <div class="w-full h-64 rounded-3xl overflow-hidden border border-white/20 relative group">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255282.32335424927!2d36.68258708454258!3d-1.302861796385665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d57a7%3A0xf972cf77fe067da5!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1698765432100!5m2!1sen!2sus" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="absolute inset-0 pointer-events-none border-[12px] border-egyptian-blue/30 rounded-3xl"></div>
+                    </div>
+
+                    <div class="glass p-8 rounded-3xl">
+                        <h3 class="font-heading text-2xl font-bold mb-6">Send a Message</h3>
+                        <form class="space-y-4">
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-xl glass-input">
+                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-xl glass-input">
+                            <textarea rows="4" placeholder="Your Message" class="w-full px-4 py-3 rounded-xl glass-input"></textarea>
+                            <button class="w-full bg-lemon-yellow text-egyptian-blue font-bold py-3 rounded-xl hover:bg-white transition-colors">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-dark border-t border-white/10">
+        <!-- Main Footer Content -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Column 1: Brand -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-lemon-yellow to-yellow-500 flex items-center justify-center text-egyptian-blue font-bold text-xl shadow-lg shadow-yellow-500/20">
+                            C
+                        </div>
+                        <div>
+                            <span class="font-heading font-bold text-xl text-white block">Citizens Justice</span>
+                            <span class="text-lemon-yellow text-xs font-semibold tracking-wider uppercase">Usawa wa Raia</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Building a transparent, unified, and prosperous Kenya through justice, unity, and development for all citizens.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-all">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-lemon-yellow hover:text-egyptian-blue transition-all">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6 text-lemon-yellow">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a onclick="showSection('about')" class="text-gray-400 hover:text-white text-sm cursor-pointer transition-colors flex items-center gap-2 group">
+                                <i class="fas fa-chevron-right text-xs text-lemon-yellow opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                About Our Party
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="showSection('leadership')" class="text-gray-400 hover:text-white text-sm cursor-pointer transition-colors flex items-center gap-2 group">
+                                <i class="fas fa-chevron-right text-xs text-lemon-yellow opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Leadership Team
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="showSection('manifesto')" class="text-gray-400 hover:text-white text-sm cursor-pointer transition-colors flex items-center gap-2 group">
+                                <i class="fas fa-chevron-right text-xs text-lemon-yellow opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Our Manifesto
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="showSection('membership')" class="text-gray-400 hover:text-white text-sm cursor-pointer transition-colors flex items-center gap-2 group">
+                                <i class="fas fa-chevron-right text-xs text-lemon-yellow opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Join Membership
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="showSection('contact')" class="text-gray-400 hover:text-white text-sm cursor-pointer transition-colors flex items-center gap-2 group">
+                                <i class="fas fa-chevron-right text-xs text-lemon-yellow opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Resources -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6 text-lemon-yellow">Resources</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a onclick="showSection('downloads')" class="text-gray-400 hover:text-white text-sm cursor-pointer transition-colors flex items-center gap-2 group">
+                                <i class="fas fa-chevron-right text-xs text-lemon-yellow opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Download Center
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="showSection('news')" class="text-gray-400 hover:text-white text-sm cursor-pointer transition-colors flex items-center gap-2 group">
+                                <i class="fas fa-chevron-right text-xs text-lemon-yellow opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                News & Updates
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white text-sm cursor-pointer transition-colors flex items-center gap-2 group">
+                                <i class="fas fa-chevron-right text-xs text-lemon-yellow opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Press Releases
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white text-sm cursor-pointer transition-colors flex items-center gap-2 group">
+                                <i class="fas fa-chevron-right text-xs text-lemon-yellow opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Privacy Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white text-sm cursor-pointer transition-colors flex items-center gap-2 group">
+                                <i class="fas fa-chevron-right text-xs text-lemon-yellow opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Terms of Service
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6 text-lemon-yellow">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-400 text-sm">
+                            <i class="fas fa-map-marker-alt mt-1 text-lemon-yellow"></i>
+                            <span>Justice Tower<br>Haile Selassie Avenue<br>Nairobi, Kenya</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-400 text-sm">
+                            <i class="fas fa-phone-alt text-lemon-yellow"></i>
+                            <span>+254 700 123 456</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-400 text-sm">
+                            <i class="fas fa-envelope text-lemon-yellow"></i>
+                            <span>info@citizensjusticepartyofkenya.org</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- Newsletter -->
+                    <div class="mt-6">
+                        <h5 class="font-semibold text-sm mb-3 text-white">Subscribe to Newsletter</h5>
+                        <div class="flex">
+                            <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 rounded-l-lg glass-input text-sm">
+                            <button class="px-4 py-2 bg-lemon-yellow text-egyptian-blue rounded-r-lg font-semibold hover:bg-white transition-colors">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p class="text-gray-500 text-sm">
+                        &copy; 2024 Citizens Justice Party of Kenya. All rights reserved.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <span class="text-gray-500 text-sm">Designed for Kenya</span>
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-1 bg-lemon-yellow rounded-full"></div>
+                            <div class="w-2 h-2 bg-lemon-yellow rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Section Navigation Logic
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show target section
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.classList.remove('hidden');
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Re-trigger animations
+                const animatedElements = target.querySelectorAll('.animate-fade-in-up');
+                animatedElements.forEach(el => {
+                    el.style.animation = 'none';
+                    el.offsetHeight; /* trigger reflow */
+                    el.style.animation = null; 
+                });
+            }
+
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-dark');
+                navbar.classList.remove('glass');
+            } else {
+                navbar.classList.add('glass');
+                navbar.classList.remove('glass-dark');
+            }
+        });
+
+
+        // Toggle statement show more/less
+        function toggleStatement(leaderId) {
+            const shortText = document.getElementById('stmt-short-' + leaderId);
+            const fullText = document.getElementById('stmt-full-' + leaderId);
+            const btn = document.getElementById('btn-' + leaderId);
+
+            if (fullText.classList.contains('hidden')) {
+                // Show full text
+                shortText.classList.add('hidden');
+                fullText.classList.remove('hidden');
+                btn.textContent = 'Show Less';
+            } else {
+                // Show truncated text
+                shortText.classList.remove('hidden');
+                fullText.classList.add('hidden');
+                btn.textContent = 'Show More';
+            }
+        }
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ensure only home is visible initially
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
